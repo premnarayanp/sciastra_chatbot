@@ -1,5 +1,8 @@
 .Chatbot {
     position: relative;
+    height: 100%;
+    border: solid 1px gray;
+    border-radius: 10px;
 }
 
 .closeChatbotBtn {
@@ -12,12 +15,88 @@
     border: 0;
     cursor: pointer;
     border-radius: 2px;
-    position: absolute;
-    top: 5px;
-    right: 5px;
 }
 
 .closeChatbotBtn img {
     height: 100%;
     width: 100%;
+}
+
+.chatbotHeader {
+    height: 10%;
+    width: 100%;
+    background-color: bisque;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    box-sizing: border-box;
+    box-shadow: 0 1px 4px 0 #d4d4d5, 0 0 0 1px #f1f1f1;
+    border: solid 1px gray;
+    border-bottom: 0;
+}
+
+.chatbotHeader .roundedImageContainer {
+    height: 40px;
+    width: 40px;
+}
+
+.chatbotHeader .roundedImageContainer img {
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+}
+
+.chatbotHeader .profileName {
+    font-weight: 600;
+    font-size: 15px;
+    color: gray;
+    cursor: pointer;
+}
+
+
+/* .description {
+    font-size: 15px;
+    color: gray;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    background-color: rgb(212, 228, 242);
+} */
+
+
+/* ============chat box chatBoxMain============= */
+
+.chatbotMain {
+    height: 80%;
+    width: 100%;
+    /* border: solid 1px gray; */
+    border-left: 0;
+    padding: 5px 20px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    box-sizing: border-box;
+    border-bottom: 0;
+}
+
+.notChat {
+    text-align: center;
+    color: brown;
+    font-family: sans-serif;
+}
+
+
+/* chatBox footer */
+
+.chatbotFooter {
+    /* height: auto; */
+    width: 100%;
+    /* border: solid 1px gray; */
+    border-top: 0;
+    border-left: 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 1px;
 }

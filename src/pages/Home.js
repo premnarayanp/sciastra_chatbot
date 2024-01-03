@@ -1,6 +1,6 @@
 import containerDisplay from '../styles/chatbotContainerDisplay.module.css';
 import styles from '../styles/home.module.css';
-
+import { chatList}  from '../dummyChats';
 import {Chatbot} from '../components/HomeComponents/index';
 import { useRef } from 'react';
 export default function Home(){
@@ -22,7 +22,7 @@ export default function Home(){
        </button>
        
        <section className={containerDisplay.displayNone} ref={chatbotContainerRef}>
-          <Chatbot chatbotContainerRef={chatbotContainerRef} />
+          <Chatbot chatbotContainerRef={chatbotContainerRef} chatList={chatList} />
        </section>
     </div>
   );
