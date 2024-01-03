@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router ,HashRouter} from 'react-router-dom';
 import './styles/index.css';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers/index';
@@ -21,11 +21,11 @@ const store=createStore(rootReducer,applyMiddleware(logger,thunk));
 
 root.render(
   <React.StrictMode>
-        <Router> 
+        <HashRouter basename='/'> 
           <Provider store={store}>
-             <App/>
-          </Provider>
-        </Router>
+            <App/>
+          </Provider>,
+        </HashRouter>
   </React.StrictMode>
 );
 
