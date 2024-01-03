@@ -7,7 +7,8 @@ export default function Question(props) {
         <div className="send-chat-container">
 
           <div className="senderInfo">
-            <span className="senderName">Q. {quesNo+":-Ans"}</span>
+            <span className="senderName">Q.{quesNo+": Ans"}</span>
+            <span className="senderName"> ~By Sciastra</span>
             <span className='sender-img-container'>
               <img src={require('../../assets/mp-icon-3.png')} alt="user-pic" />
             </span>

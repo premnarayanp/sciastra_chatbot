@@ -1,17 +1,15 @@
-import{Component} from "react"
+import{useState} from "react"
 import '../../styles/chatBoard.css';
-// import {addChatToList} from '../actions/chatActionCreator';
+import {addChatToList} from '../../actions/chatActionCreator';
 // import {getAnswerOfQues} from '../api/index';
-export default class ChatBoard extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      inputChat:'',
-    };
-  }
+export default function ChatBoard(props) {
+
+  const [inputChat, setInputChat]=useState("");
+   const {dispatch}=props;
+
 
  //get current time in hour,minutes, and AM or PM and date
- getCurrentTime() {
+ function getCurrentTime() {
   let date = new Date();
   let hour = date.getHours();
   let minute = date.getMinutes();
@@ -26,7 +24,7 @@ export default class ChatBoard extends Component {
    minute= minute<10? "0"+minute :minute;
 
    const time=hour+":"+minute+" "+am_pm
-   const currentDate=date.getDate()+"/"+date.getMonth()+"/"+date.getFullYear();
+   const currentDate=date.getDate()+"/"+ (date.getMonth()===0?"01":date.getMonth())+"/"+date.getFullYear();
    //console.log("================currentDate=======",currentDate);
 
   return {
@@ -35,32 +33,31 @@ export default class ChatBoard extends Component {
   };
 }
 
-  SendChat= async ()=>{
-    const {date,time}=this.getCurrentTime();
+  const SendChat= async ()=>{
+    const {date,time}=getCurrentTime();
     const initialChats={
        date:date,
        time:time,
-       question:this.state.inputChat
+       question:inputChat,
+       ans:"I could not give your answer now because API work on hold,wait for few day.Thanks."
     };
 
-      // this.props.store.dispatch(addChatToList(response.data.ansAndQues));
-      // this.setState({inputChat:""})
+      dispatch(addChatToList(initialChats));
+      setInputChat("")
   }
 
-  render(){
-   
-    return( 
-            <div className="ChatBoard">
-              <textarea 
-               value={this.state.inputChat} 
-               onChange={(e)=>{ this.setState({inputChat:e.target.value})}} 
-               type="text" className="chatInput">
-              </textarea>
+  return( 
+        <div className="ChatBoard">
+          <textarea 
+            value={inputChat} 
+            onChange={(e)=> setInputChat(e.target.value)} 
+            type="text" className="chatInput"
+            placeholder="Type your query...">
+          </textarea>
 
-              <button className="sendChatBtn" onClick={()=>this.SendChat()}>
-                <img src={require('../../assets/send.png')} alt="" />
-              </button>
-            </div>
-    )
-  }
+          <button className="sendChatBtn" onClick={()=>SendChat()}>
+            <img src={require('../../assets/send.png')} alt="" />
+          </button>
+        </div>
+  )
 }

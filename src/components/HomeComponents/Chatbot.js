@@ -1,8 +1,9 @@
 import '../../styles/chatbot.css';
 import containerDisplay from '../../styles/chatbotContainerDisplay.module.css';
 import { Answer,Question,ChatBoard } from "./index";
-export default function Chatbot(props){
-  const {chatbotContainerRef,chatList}=props;
+import { connect } from 'react-redux';
+function Chatbot(props){
+  const {chatbotContainerRef,chatList,dispatch}=props;
 
   //Close chatbot
   const closeChatbot=()=>{
@@ -10,7 +11,6 @@ export default function Chatbot(props){
   }
 
   return(
-         
     <div className="Chatbot">
       <header className="chatbotHeader">
         <div className='roundedImageContainer'>
@@ -42,13 +42,19 @@ export default function Chatbot(props){
 
      
       <footer className="chatbotFooter">
-        <ChatBoard />
+        <ChatBoard  dispatch={dispatch}/>
       </footer>
     </div>
 )
 
 }
 
- /* <button className="description" onClick={()=>this.handleDescriptionClick()}>
-           Description...
-        </button> */
+//==============================connect=================================
+function mapStateToProps(state){
+  const chats=state.chats;
+  return{
+    chatList:chats.chatList
+  }
+}
+const connectedChatbotComponent=connect(mapStateToProps)(Chatbot);
+export default connectedChatbotComponent;

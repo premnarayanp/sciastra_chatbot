@@ -8,7 +8,7 @@ export default function Question(props) {
 
           <div className="senderInfo">
             <span className="senderName">Q.{quesNo}</span>
-            <span className="senderName">{"~Sciastra"}</span>
+            <span className="senderName">{"~Premnarayan"}</span>
             {/* <span className='sender-img-container'>
               <img src={""} alt="user-pic" />
             </span> */}
