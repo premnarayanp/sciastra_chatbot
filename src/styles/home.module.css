@@ -1,0 +1,50 @@
+.Home {
+    padding: 2px;
+    box-sizing: border-box;
+    overflow: hidden;
+    height: 92%;
+}
+
+.startChatBtn {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    align-items: center;
+    background-color: #4cca5a;
+    z-index: 1000;
+    border: 0;
+    border-radius: 2rem;
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+.startChatBtn img {
+    height: 30px;
+    width: 30px;
+}
+
+.startChatBtn p {
+    color: white;
+    margin-left: 2px;
+}
+
+
+/* .chatbotContainerDisplay {
+    height: 100%;
+    width: 40%;
+    min-width: 300px;
+    background-color: green;
+    display: block;
+}
+
+.chatbotContainerDisplayNone {
+    height: 100%;
+    width: 40%;
+    min-width: 300px;
+    background-color: green;
+    display: none;
+} */
+
+
+/* style={{display:'none'}} */

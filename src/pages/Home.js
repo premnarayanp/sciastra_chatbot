@@ -1,14 +1,29 @@
-import '../styles/home.css';
-import React from 'react';
+import containerDisplay from '../styles/chatbotContainerDisplay.module.css';
+import styles from '../styles/home.module.css';
 
-export default class Home extends React.Component{
+import {Chatbot} from '../components/HomeComponents/index';
+import { useRef } from 'react';
+export default function Home(){
 
-   render(){
-    return (
-      <div className="Home">
-      <h1>Home</h1>
-      </div>
-    );
+  const chatbotContainerRef=useRef();
+
+  const openChatbot=()=>{
+    // console.log("chatbotContainerRef=",chatbotContainerRef.current)
+    chatbotContainerRef.current.className=containerDisplay.displayBlock;
+
   }
-
+  return (
+    <div className={styles.Home}>
+       <h1>Sciastra Home</h1>
+       
+       <button className={styles.startChatBtn} onClick={openChatbot}>
+         <img alt='mess' src='https://www.sciastra.com/Assets/newAssets/whatsapp.webp'/>
+         <p>Chat with us</p>
+       </button>
+       
+       <section className={containerDisplay.displayNone} ref={chatbotContainerRef}>
+          <Chatbot chatbotContainerRef={chatbotContainerRef} />
+       </section>
+    </div>
+  );
 }
